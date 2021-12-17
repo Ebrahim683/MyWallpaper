@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
+    android:background="@android:color/transparent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <RelativeLayout
+        android:id="@+id/r_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="3dp">
+
+        <ImageView
+            android:id="@+id/sample_image_list"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_image"
+            android:padding="5dp"
+            tools:src="@drawable/ic_android_black_24dp" />
+
+        <LinearLayout
+            android:id="@+id/l_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@id/sample_image_list"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/list_image_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Image Name"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                tools:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/list_image_high"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="High Quality"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                tools:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/list_image_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Medium Quality"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                tools:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/list_image_low"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Low Quality"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                tools:textColor="@color/black" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/image_list_download"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_download_btn"
+        android:drawableEnd="@drawable/ic_download_icon"
+        android:paddingLeft="5dp"
+        android:paddingEnd="5dp"
+        android:text="Download"
+        android:textColor="@color/white"
+        android:textSize="10sp" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/teal_200" />
+
+
+</LinearLayout>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "797149316021",
+    "project_id": "mywallpaper-40a8d",
+    "storage_bucket": "mywallpaper-40a8d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:797149316021:android:20ed134b4ffdef91008ffc",
+        "android_client_info": {
+          "package_name": "com.rexoit.mywallpaper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "797149316021-j3v42n22vp5bcrvr4lp88s0m5fs6iplh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCv_XxgCbebUXHOB3fIJRdx3H_Xj9ixwc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "797149316021-j3v42n22vp5bcrvr4lp88s0m5fs6iplh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

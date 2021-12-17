@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/MyWallpaper/app/src/main/res/drawable/bg_download_btn.xml" value="0.2203125" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/drawable/bg_image.xml" value="0.2203125" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/drawable/bg_image_main.xml" value="0.2203125" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/drawable/bg_name.xml" value="0.2128205128205128" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/drawable/bg_search.xml" value="0.2203125" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/drawable/bg_search_full.xml" value="0.2203125" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/drawable/bg_setup_btn.xml" value="0.2203125" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/drawable/bg_share_btn.xml" value="0.2203125" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.2203125" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.2203125" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/drawable/ic_download_icon.xml" value="0.2203125" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/layout/activity_image_details.xml" value="0.2" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/layout/activity_image_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/layout/activity_islamic_list.xml" value="0.2" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/layout/activity_loading.xml" value="0.2" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/layout/custom_toolbar.xml" value="0.18981481481481483" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/layout/image_list_row.xml" value="0.20416666666666666" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/layout/main_rec_row.xml" value="0.20416666666666666" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/layout/nav_header.xml" value="0.20416666666666666" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/layout/nn.xml" value="0.33" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/layout/shimmer_list.xml" value="0.2" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/layout/shimmer_main_row.xml" value="0.2" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/layout/slider_row.xml" value="0.2" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/menu/nav_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/menu/search_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/MyWallpaper/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.17760416666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
