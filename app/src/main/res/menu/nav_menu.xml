@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/m_setting"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="Setting" />
+
+    <item
+        android:id="@+id/m_email"
+        android:icon="@drawable/ic_baseline_email_24"
+        android:title="Mail Us" />
+
+    <item
+        android:id="@+id/m_terms"
+        android:icon="@drawable/ic_baseline_term_24"
+        android:title="Terms and condition" />
+
+    <item
+        android:id="@+id/m_privacy"
+        android:icon="@drawable/ic_baseline_privacy_tip_24"
+        android:title="Privacy policy" />
+
+</menu>

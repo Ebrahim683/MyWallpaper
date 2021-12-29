@@ -11,11 +11,13 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.afdhal_fa.imageslider.model.SlideUIModel
 import com.denzcoskun.imageslider.interfaces.ItemClickListener
@@ -45,6 +47,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mainRecyclerViewAdapter: MainRecyclerViewAdapter
     private lateinit var firestore: FirebaseFirestore
     private lateinit var sliderList: ArrayList<SlideUIModel>
+    private lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,10 +56,38 @@ class MainActivity : AppCompatActivity() {
         toolbar = findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
         supportActionBar?.title = ""
-//		supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
+        drawerLayout = findViewById(R.id.drawer_layout)
+        actionBarDrawerToggle =
+            ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+        drawerLayout.addDrawerListener(actionBarDrawerToggle)
+        actionBarDrawerToggle.syncState()
+
+        nav_id.setNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.m_setting -> {
+                    Toast.makeText(this, "Setting", Toast.LENGTH_SHORT).show()
+                }
+                R.id.m_email->{
+                    Toast.makeText(this, "Email", Toast.LENGTH_SHORT).show()
+                }
+                R.id.m_terms -> {
+                    Toast.makeText(this, "Terms and condition", Toast.LENGTH_SHORT).show()
+                }
+                R.id.m_privacy -> {
+                    Toast.makeText(this, "Privacy policy", Toast.LENGTH_SHORT).show()
+                }
+            }
+            drawerLayout.closeDrawers()
+            true
+        }
+
         runTimePermission()
         socialMedia()
         imageSlider()
+
         firestore = FirebaseFirestore.getInstance()
         mainRecyclerViewAdapter = MainRecyclerViewAdapter()
         mainRecyclerViewAdapter.submitList(loadImages())

@@ -1,6 +1,6 @@
 package com.rexoit.mywallpaper.adapter
 
-import android.graphics.Color
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,17 +10,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.facebook.shimmer.ShimmerFrameLayout
+import com.bumptech.glide.Glide
 import com.rexoit.mywallpaper.R
 import com.rexoit.mywallpaper.model.WallpaperModel
 import com.rexoit.mywallpaper.util.RecyclerViewItemClick
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.image_list_row.view.*
 
-class ImageListAdapter : ListAdapter<WallpaperModel, ImageListAdapter.ImageListHolder>(
-    DIFF_UTIL_CALL_BACK
-) {
-
+class ImageListAdapter(var context: Context? = null) :
+    ListAdapter<WallpaperModel, ImageListAdapter.ImageListHolder>(
+        DIFF_UTIL_CALL_BACK
+    ) {
     var recyclerViewItemClick: RecyclerViewItemClick? = null
 
     fun onClick(recyclerViewItemClick: RecyclerViewItemClick) {
@@ -33,8 +32,10 @@ class ImageListAdapter : ListAdapter<WallpaperModel, ImageListAdapter.ImageListH
         val imageName: TextView = itemView.findViewById(R.id.list_image_name)
         val btnDownload: Button = itemView.findViewById(R.id.image_list_download)
 
-        fun bind(wallpaperModel: WallpaperModel) {
-            Picasso.get().load(wallpaperModel.imageLink).placeholder(R.drawable.loading).into(image)
+        fun bind(wallpaperModel: WallpaperModel, context: Context?) {
+//            Picasso.get().load(wallpaperModel.imageLink).placeholder(R.drawable.loading).into(image)
+            Glide.with(context!!).load(wallpaperModel.imageLink).placeholder(R.drawable.loading)
+                .into(image)
             imageName.text = wallpaperModel.imageName
 
             itemView.r_id.setOnClickListener {
@@ -58,7 +59,7 @@ class ImageListAdapter : ListAdapter<WallpaperModel, ImageListAdapter.ImageListH
 
     override fun onBindViewHolder(holder: ImageListHolder, position: Int) {
         val wallpaperModel = getItem(position)
-        holder.bind(wallpaperModel)
+        holder.bind(wallpaperModel, context)
     }
 
     companion object {

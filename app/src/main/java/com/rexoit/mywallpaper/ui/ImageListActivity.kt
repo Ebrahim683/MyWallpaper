@@ -55,7 +55,7 @@ class ImageListActivity : AppCompatActivity() {
         Log.d(TAG, "onCreate: $name")
         arrayList = ArrayList()
         filterList = ArrayList()
-        imageListAdapter = ImageListAdapter()
+        imageListAdapter = ImageListAdapter(this)
         setUpWallpaper(name)
 
         swipe_refresh_list.setOnRefreshListener {

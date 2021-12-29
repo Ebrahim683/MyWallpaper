@@ -191,4 +191,12 @@
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_id"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_menu" />
+
 </androidx.drawerlayout.widget.DrawerLayout>

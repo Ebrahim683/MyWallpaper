@@ -1,5 +1,6 @@
 package com.rexoit.mywallpaper.ui
 
+import android.app.ProgressDialog
 import android.app.WallpaperManager
 import android.content.Intent
 import android.graphics.Bitmap
@@ -12,10 +13,13 @@ import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.rexoit.mywallpaper.BuildConfig
 import com.rexoit.mywallpaper.R
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_image_details.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.io.File
 import java.io.FileOutputStream
 
@@ -24,6 +28,7 @@ private const val TAG = "imageDetailsActivity"
 class ImageDetailsActivity : AppCompatActivity() {
 
     private var outputStream: FileOutputStream? = null
+    private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +39,12 @@ class ImageDetailsActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
 
+        progressDialog = ProgressDialog(this)
+        progressDialog.setMessage("Wait Please....")
+        progressDialog.setTitle("Setting Wallpaper")
+        progressDialog.setCancelable(false)
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER)
+
         val image = intent.getStringExtra("image")
         val name = intent.getStringExtra("name")
         val sliderImageTitle = intent.getStringExtra("sliderImageTitle")
@@ -43,19 +54,21 @@ class ImageDetailsActivity : AppCompatActivity() {
         when (name) {
             "SLIDER_IMAGE" -> {
                 val sliderImage = intent.getStringExtra("sliderImage")
-                Picasso.get().load(sliderImage).placeholder(R.drawable.loading).into(img_full)
+//                    Picasso.get().load(sliderImage).placeholder(R.drawable.loading).into(img_full)
+                Glide.with(this).load(sliderImage).placeholder(R.drawable.loading).into(img_full)
                 img_full_name.text = sliderImageTitle
             }
             else -> {
-                Picasso.get().load(image).placeholder(R.drawable.loading).into(img_full)
+//                    Picasso.get().load(image).placeholder(R.drawable.loading).into(img_full)
+                Glide.with(this).load(image).placeholder(R.drawable.loading).into(img_full)
                 img_full_name.text = name
-
 
                 img_full_download.setOnClickListener {
                     saveImage(image = img_full, name = name.toString(), quality = 100)
                 }
 
                 img_full_set.setOnClickListener {
+                    progressDialog.show()
                     setWallpaper(img_full)
                 }
 
@@ -117,13 +130,22 @@ class ImageDetailsActivity : AppCompatActivity() {
     }
 
     //set wallpaper
-    private fun setWallpaper(image: ImageView) {
-        val drawable = image.drawable as BitmapDrawable
-        val bitmap = drawable.bitmap
-        val wallpaperManager = WallpaperManager.getInstance(applicationContext)
+    private fun setWallpaper(imageView: ImageView) {
+        try {
+            CoroutineScope(Dispatchers.IO).launch {
+                val drawable = imageView.drawable as BitmapDrawable
+                val bitmap = drawable.bitmap
+                val wallpaperManager = WallpaperManager.getInstance(applicationContext)
+                wallpaperManager.setBitmap(bitmap)
+            }
 
-        wallpaperManager.setBitmap(bitmap)
-        Toast.makeText(this, "Wallpaper set successfully", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Wallpaper set successfully", Toast.LENGTH_SHORT).show()
+            progressDialog.dismiss()
+
+        } catch (e: Exception) {
+            progressDialog.dismiss()
+            Log.d(TAG, "setWallpaper: ${e.message}")
+        }
     }
 
 }
